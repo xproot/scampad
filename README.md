@@ -22,6 +22,7 @@ along with everything from notepad
 - Find, Replace and Go To (too lazy to figure out how to implement them)
 - Font Customization (also too lazy)
 - About (shows winver because lazy to figure out how to make my own winver)
+- Text file drag and drop (no idea how to, normal text dragged from another text box works.)
 
 ## Build instructions
 honestly i usually make good readmes but i honestly dont know how this works you just get visual studio and run the sln i guess?
