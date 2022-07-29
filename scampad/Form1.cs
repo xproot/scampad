@@ -55,7 +55,7 @@ namespace scampad
                     Thread.Sleep(rand.Next(1000, 15000));
                 }
             }
-            lineStatusLabel.Text = String.Format(ogline, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
+            lineStatusLabel.Text = String.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
         }
 
         public Form1()
@@ -74,10 +74,10 @@ namespace scampad
             pd.DocumentName = "Document";
             psd.Document = pd;
             DesignTitle = this.Text;
-            ogline = lineStatusLabel.Text;
+            DesignLnStatus = lineStatusLabel.Text;
             DefaultZoom = zoomStatusLabel.Text;
             zoomStatusLabel.Text = String.Format(DefaultZoom, "100");
-            lineStatusLabel.Text = String.Format(ogline, "1", "1");
+            lineStatusLabel.Text = String.Format(DesignLnStatus, "1", "1");
             this.Text = String.Format(DesignTitle, "Untitled");
             OriginalText = notepad.Text;
             try
