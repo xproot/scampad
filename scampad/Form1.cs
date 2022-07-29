@@ -56,7 +56,7 @@ namespace scampad
                 {
                     notepad.AppendText(vocabulary[rand.Next(0, vocabulary.Length - 1)]);
                 }
-                if (rand.Next(0, 100) < 2)
+                if (rand.Next(0, 100) < 1)
                 {
                     Thread.Sleep(rand.Next(1000, 15000));
                 }
