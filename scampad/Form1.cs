@@ -110,8 +110,12 @@ namespace scampad
             OnInteraction();
         }
 
-        private void notepad_KeyUp(object sender, EventArgs e)
+        private void notepad_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.F1)
+            {
+                Process.Start("https://go.microsoft.com/fwlink/?LinkId=834783");
+            }
             OnInteraction();
         }
 
