@@ -564,6 +564,7 @@
             // notepad
             // 
             this.notepad.AcceptsTab = true;
+            this.notepad.AllowDrop = true;
             this.notepad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.notepad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.notepad.Font = new System.Drawing.Font("Consolas", 11.25F);
@@ -576,6 +577,8 @@
             this.notepad.TextChanged += new System.EventHandler(this.notepad_TextChanged);
             this.notepad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.notepad_KeyUp);
             this.notepad.MouseUp += new System.Windows.Forms.MouseEventHandler(this.notepad_MouseUp);
+            this.notepad.DragEnter += new System.Windows.Forms.DragEventHandler(this.notepad_DragEnter);
+            this.notepad.DragDrop += new System.Windows.Forms.DragEventHandler(this.notepad_DragDrop);
             // 
             // borderPanel
             // 

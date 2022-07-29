@@ -119,6 +119,21 @@ namespace scampad
         {
             OnInteraction();
         }
+
+        private void notepad_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void notepad_DragDrop(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.None;
+            try
+            {
+                MessageBox.Show(e.Data.GetData("System.String", true).ToString());
+            }
+            catch { }
+        }
         #endregion
 
         #region File Menu Strip
