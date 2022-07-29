@@ -1,6 +1,7 @@
 # scampad
 
 Notepad clone designed to annoy the user, originally made for scambaiting.
+**.NET 4.8 required**
 
 ![image](https://user-images.githubusercontent.com/49620652/181848131-e1917f7f-f4c5-472d-83bf-c7506d8e3f79.png)
 
