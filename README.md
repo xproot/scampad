@@ -3,7 +3,7 @@
 Notepad clone designed to annoy the user, originally made for scambaiting.
 **.NET 4.8 required**
 
-![image](https://user-images.githubusercontent.com/49620652/181848131-e1917f7f-f4c5-472d-83bf-c7506d8e3f79.png)
+![image](https://user-images.githubusercontent.com/49620652/181858585-57d225a1-3fa3-4907-af49-1fa6e433777b.png)
 
 
 ## Features
