@@ -12,11 +12,11 @@ namespace scampad
     public partial class Form1 : Form
     {
         Random rand = new Random();
-        String ogtitle;
-        String ogzoom;
-        String ogline;
-        String ogtext;
-        String filename;
+        String DesignTitle;
+        String DefaultZoom;
+        String DesignLnStatus;
+        String OriginalText;
+        String CurrentFile;
         String[] vocabulary = new string[] {" this is not easy", "wbasbd", " what happened?", " please give me your creditcard info sir",
             " this costs $1400 per month", " not", " please no", " do not do it", " go to your bank", "this is not important" };
         PageSetupDialog psd = new PageSetupDialog();
@@ -73,21 +73,21 @@ namespace scampad
             }
             pd.DocumentName = "Document";
             psd.Document = pd;
-            ogtitle = this.Text;
+            DesignTitle = this.Text;
             ogline = lineStatusLabel.Text;
-            ogzoom = zoomStatusLabel.Text;
-            zoomStatusLabel.Text = String.Format(ogzoom, "100");
+            DefaultZoom = zoomStatusLabel.Text;
+            zoomStatusLabel.Text = String.Format(DefaultZoom, "100");
             lineStatusLabel.Text = String.Format(ogline, "1", "1");
-            this.Text = String.Format(ogtitle, "Untitled");
-            ogtext = notepad.Text;
+            this.Text = String.Format(DesignTitle, "Untitled");
+            OriginalText = notepad.Text;
             try
             {
                 if (File.Exists(Environment.GetCommandLineArgs()[1]))
                 {
-                    filename = Environment.GetCommandLineArgs()[1];
-                    this.Text = String.Format(ogtitle, Path.GetFileName(filename));
-                    ogtext = File.ReadAllText(Environment.GetCommandLineArgs()[1]);
-                    notepad.Text = ogtext;
+                    CurrentFile = Environment.GetCommandLineArgs()[1];
+                    this.Text = String.Format(DesignTitle, Path.GetFileName(CurrentFile));
+                    OriginalText = File.ReadAllText(Environment.GetCommandLineArgs()[1]);
+                    notepad.Text = OriginalText;
                 }
             } catch { }
         }
@@ -95,7 +95,7 @@ namespace scampad
         #region notepad Text Box
         private void notepad_TextChanged(object sender, EventArgs e)
         {
-            if (ogtext != notepad.Text)
+            if (OriginalText != notepad.Text)
             {
                 if (!ischanged)
                     this.Text = "*" + this.Text;
@@ -124,7 +124,7 @@ namespace scampad
         #region File Menu Strip
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Text = String.Format(ogtitle, "Untitled");
+            this.Text = String.Format(DesignTitle, "Untitled");
             notepad.Text = "";
         }
 
@@ -143,13 +143,13 @@ namespace scampad
             {
                 if (File.Exists(ofd.FileName))
                 {
-                    filename = ofd.FileName;
-                    ogtext = File.ReadAllText(ofd.FileName, Encoding.UTF8);
+                    CurrentFile = ofd.FileName;
+                    OriginalText = File.ReadAllText(ofd.FileName, Encoding.UTF8);
                     if (this.Text.Substring(0, 1) == "*")
                         this.Text = this.Text.Substring(1);
                     ischanged = false;
-                    notepad.Text = ogtext;
-                    this.Text = String.Format(ogtitle, Path.GetFileName(ofd.FileName));
+                    notepad.Text = OriginalText;
+                    this.Text = String.Format(DesignTitle, Path.GetFileName(ofd.FileName));
                 }
                 else
                     MessageBox.Show("File does not exist!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -159,10 +159,10 @@ namespace scampad
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (filename != null && filename != String.Empty)
+            if (CurrentFile != null && CurrentFile != String.Empty)
             {
-                File.WriteAllText(filename, notepad.Text);
-                ogtext = notepad.Text;
+                File.WriteAllText(CurrentFile, notepad.Text);
+                OriginalText = notepad.Text;
                 if (this.Text.Substring(0, 1) == "*")
                     this.Text = this.Text.Substring(1);
                 ischanged = false;
@@ -174,14 +174,14 @@ namespace scampad
                 sfd.Filter = "Text Documents|*.txt|All Files (*.*)|*.*";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    ogtext = notepad.Text;
+                    OriginalText = notepad.Text;
                     try
                     {
                         File.WriteAllText(sfd.FileName, notepad.Text, Encoding.UTF8);
                     }
                     catch { MessageBox.Show("Unable to save!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
                     ischanged = false;
-                    this.Text = String.Format(ogtitle, Path.GetFileName(sfd.FileName));
+                    this.Text = String.Format(DesignTitle, Path.GetFileName(sfd.FileName));
                 }
                 sfd.Dispose();
             }
@@ -194,14 +194,14 @@ namespace scampad
             sfd.Filter = "Text Documents|*.txt|All Files (*.*)|*.*";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                ogtext = notepad.Text;
+                OriginalText = notepad.Text;
                 try
                 {
                     File.WriteAllText(sfd.FileName, notepad.Text, Encoding.UTF8);
                 }
                 catch { MessageBox.Show("Unable to save!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
                 ischanged = false;
-                this.Text = String.Format(ogtitle, Path.GetFileName(sfd.FileName));
+                this.Text = String.Format(DesignTitle, Path.GetFileName(sfd.FileName));
             }
             sfd.Dispose();
         }
@@ -316,19 +316,19 @@ namespace scampad
         private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
         {
             notepad.Font = new System.Drawing.Font(notepad.Font.FontFamily, notepad.Font.Size + 0.5F);
-            zoomStatusLabel.Text = String.Format(ogzoom, Math.Round((notepad.Font.Size / 11F) * 100).ToString());
+            zoomStatusLabel.Text = String.Format(DefaultZoom, Math.Round((notepad.Font.Size / 11F) * 100).ToString());
         }
 
         private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             notepad.Font = new System.Drawing.Font(notepad.Font.FontFamily, notepad.Font.Size - 0.5F);
-            zoomStatusLabel.Text = String.Format(ogzoom, Math.Round((notepad.Font.Size / 11F) * 100).ToString());
+            zoomStatusLabel.Text = String.Format(DefaultZoom, Math.Round((notepad.Font.Size / 11F) * 100).ToString());
         }
 
         private void restoreDefaultZoomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             notepad.Font = new System.Drawing.Font(notepad.Font.FontFamily, 11F);
-            zoomStatusLabel.Text = String.Format(ogzoom, Math.Round((notepad.Font.Size / 11F) * 100).ToString());
+            zoomStatusLabel.Text = String.Format(DefaultZoom, Math.Round((notepad.Font.Size / 11F) * 100).ToString());
         }
 
         private void statusBarToolStripMenuItem_Click(object sender, EventArgs e)
