@@ -28,20 +28,20 @@ namespace scampad
         {
             if (notepad.SelectionLength > 0)
             {
-                deleteToolStripMenuItem.Enabled = true;
-                CutButton.Enabled = true;
-                CopyButton.Enabled = true;
-                SearchWithBingButton.Enabled = true;
+                DeleteMenuItem.Enabled = true;
+                CutMenuItem.Enabled = true;
+                CopyMenuItem.Enabled = true;
+                SearchBingButton.Enabled = true;
                 if (rand.Next(0, 100) > 95)
                     searchWithBingToolStripMenuItem_Click(null, null);
                 if (rand.Next(0, 100) < 10)
                     notepad.SelectedText = "";
             } else
             {
-                deleteToolStripMenuItem.Enabled = false;
-                CutButton.Enabled = false;
-                CopyButton.Enabled = false;
-                SearchWithBingButton.Enabled = false;
+                DeleteMenuItem.Enabled = false;
+                CutMenuItem.Enabled = false;
+                CopyMenuItem.Enabled = false;
+                SearchBingButton.Enabled = false;
                 if (rand.Next(0,100) < 5)
                 {
                     notepad.Text = notepad.Text.Replace("scan", "scam");
