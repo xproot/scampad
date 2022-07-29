@@ -112,10 +112,6 @@ namespace scampad
 
         private void notepad_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F1)
-            {
-                Process.Start("https://go.microsoft.com/fwlink/?LinkId=834783");
-            }
             OnInteraction();
         }
 
@@ -353,7 +349,7 @@ namespace scampad
         #region Help Menu Strip
         private void indexToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Something happened.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            Process.Start("https://go.microsoft.com/fwlink/?LinkId=834783");
         }
 
         private void feedToolStripMenuItem_Click(object sender, EventArgs e)
