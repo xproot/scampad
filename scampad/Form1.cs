@@ -11,27 +11,27 @@ namespace scampad
 {
     public partial class Form1 : Form
     {
-        Random rand = new Random();
+        readonly Random rand = new Random();
         String DesignTitle;
         String DefaultZoom;
         String DesignLnStatus;
         String OriginalText;
         String CurrentFile;
-        String[] vocabulary = new string[] {" this is not easy", "wbasbd", " what happened?", " please give me your creditcard info sir",
+        readonly String[] vocabulary = new string[] {" this is not easy", "wbasbd", " what happened?", " please give me your creditcard info sir",
             " this costs $1400 per month", " not", " please no", " do not do it", " go to your bank", "this is not important" };
-        PageSetupDialog psd = new PageSetupDialog();
-        PrintDialog prd = new PrintDialog();
-        PrintDocument pd = new PrintDocument(); 
+        readonly PageSetupDialog psd = new PageSetupDialog();
+        readonly PrintDialog prd = new PrintDialog();
+        readonly PrintDocument pd = new PrintDocument(); 
         bool ischanged = false;
 
-        public void OnSelectionUpdate()
+        public void OnInteraction()
         {
             if (notepad.SelectionLength > 0)
             {
                 deleteToolStripMenuItem.Enabled = true;
-                cutToolStripMenuItem.Enabled = true;
-                copyToolStripMenuItem.Enabled = true;
-                searchWithBingToolStripMenuItem.Enabled = true;
+                CutButton.Enabled = true;
+                CopyButton.Enabled = true;
+                SearchWithBingButton.Enabled = true;
                 if (rand.Next(0, 100) > 95)
                     searchWithBingToolStripMenuItem_Click(null, null);
                 if (rand.Next(0, 100) < 10)
@@ -39,9 +39,9 @@ namespace scampad
             } else
             {
                 deleteToolStripMenuItem.Enabled = false;
-                cutToolStripMenuItem.Enabled = false;
-                copyToolStripMenuItem.Enabled = false;
-                searchWithBingToolStripMenuItem.Enabled = false;
+                CutButton.Enabled = false;
+                CopyButton.Enabled = false;
+                SearchWithBingButton.Enabled = false;
                 if (rand.Next(0,100) < 5)
                 {
                     notepad.Text = notepad.Text.Replace("scan", "scam");
@@ -107,17 +107,17 @@ namespace scampad
                     this.Text = this.Text.Substring(1);
                 ischanged = false;
             }
-            OnSelectionUpdate();
+            OnInteraction();
         }
 
         private void notepad_KeyUp(object sender, EventArgs e)
         {
-            OnSelectionUpdate();
+            OnInteraction();
         }
 
         private void notepad_MouseUp(object sender, MouseEventArgs e)
         {
-            OnSelectionUpdate();
+            OnInteraction();
         }
         #endregion
 
