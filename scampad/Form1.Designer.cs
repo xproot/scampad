@@ -53,12 +53,12 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.CutButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.CopyButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.CutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CopyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.SearchWithBingButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchBingButton = new System.Windows.Forms.ToolStripMenuItem();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findNextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findPreviousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -291,12 +291,12 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
             this.toolStripSeparator3,
-            this.CutButton,
-            this.CopyButton,
+            this.CutMenuItem,
+            this.CopyMenuItem,
             this.pasteToolStripMenuItem,
-            this.deleteToolStripMenuItem,
+            this.DeleteMenuItem,
             this.toolStripSeparator4,
-            this.SearchWithBingButton,
+            this.SearchBingButton,
             this.findToolStripMenuItem,
             this.findNextToolStripMenuItem,
             this.findPreviousToolStripMenuItem,
@@ -325,25 +325,25 @@
             // 
             // CutButton
             // 
-            this.CutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.CutButton.Enabled = false;
-            this.CutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.CutButton.Name = "CutButton";
-            this.CutButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.CutButton.Size = new System.Drawing.Size(196, 22);
-            this.CutButton.Text = "Cu&t";
-            this.CutButton.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+            this.CutMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.CutMenuItem.Enabled = false;
+            this.CutMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CutMenuItem.Name = "CutButton";
+            this.CutMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.CutMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.CutMenuItem.Text = "Cu&t";
+            this.CutMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // CopyButton
             // 
-            this.CopyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.CopyButton.Enabled = false;
-            this.CopyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.CopyButton.Name = "CopyButton";
-            this.CopyButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.CopyButton.Size = new System.Drawing.Size(196, 22);
-            this.CopyButton.Text = "&Copy";
-            this.CopyButton.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            this.CopyMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.CopyMenuItem.Enabled = false;
+            this.CopyMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CopyMenuItem.Name = "CopyButton";
+            this.CopyMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.CopyMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.CopyMenuItem.Text = "&Copy";
+            this.CopyMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
@@ -357,12 +357,12 @@
             // 
             // deleteToolStripMenuItem
             // 
-            this.deleteToolStripMenuItem.Enabled = false;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.DeleteMenuItem.Enabled = false;
+            this.DeleteMenuItem.Name = "deleteToolStripMenuItem";
+            this.DeleteMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.DeleteMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.DeleteMenuItem.Text = "Delete";
+            this.DeleteMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -371,11 +371,11 @@
             // 
             // SearchWithBingButton
             // 
-            this.SearchWithBingButton.Enabled = false;
-            this.SearchWithBingButton.Name = "SearchWithBingButton";
-            this.SearchWithBingButton.Size = new System.Drawing.Size(196, 22);
-            this.SearchWithBingButton.Text = "Search with Bing...";
-            this.SearchWithBingButton.Click += new System.EventHandler(this.searchWithBingToolStripMenuItem_Click);
+            this.SearchBingButton.Enabled = false;
+            this.SearchBingButton.Name = "SearchWithBingButton";
+            this.SearchBingButton.Size = new System.Drawing.Size(196, 22);
+            this.SearchBingButton.Text = "Search with Bing...";
+            this.SearchBingButton.Click += new System.EventHandler(this.searchWithBingToolStripMenuItem_Click);
             // 
             // findToolStripMenuItem
             // 
@@ -628,8 +628,8 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem CutButton;
-        private System.Windows.Forms.ToolStripMenuItem CopyButton;
+        private System.Windows.Forms.ToolStripMenuItem CutMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CopyMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
@@ -657,8 +657,8 @@
         private System.Windows.Forms.ToolStripStatusLabel spacerStrip;
         private System.Windows.Forms.ToolStripMenuItem newWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pageSetupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem SearchWithBingButton;
+        private System.Windows.Forms.ToolStripMenuItem DeleteMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SearchBingButton;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findNextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findPreviousToolStripMenuItem;

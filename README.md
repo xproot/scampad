@@ -21,7 +21,6 @@ along with everything from notepad
 - Printing (window shows up but i didnt implement printing)
 - Find, Replace and Go To (too lazy to figure out how to implement them)
 - Font Customization (also too lazy)
-- Help (lazy)
 - About (shows winver because lazy to figure out how to make my own winver)
 
 ## Build instructions
