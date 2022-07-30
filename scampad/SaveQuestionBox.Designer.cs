@@ -44,7 +44,7 @@
             this.buttonPanel.Controls.Add(this.noButton);
             this.buttonPanel.Controls.Add(this.cancelButton);
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonPanel.Location = new System.Drawing.Point(0, 86);
+            this.buttonPanel.Location = new System.Drawing.Point(0, 71);
             this.buttonPanel.Name = "buttonPanel";
             this.buttonPanel.Size = new System.Drawing.Size(359, 40);
             this.buttonPanel.TabIndex = 0;
@@ -99,7 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(359, 126);
+            this.ClientSize = new System.Drawing.Size(359, 111);
             this.Controls.Add(this.changesLabel);
             this.Controls.Add(this.buttonPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -107,7 +107,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(375, 165);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(375, 165);
+            this.MinimumSize = new System.Drawing.Size(375, 150);
             this.Name = "SaveQuestionBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

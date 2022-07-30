@@ -34,6 +34,9 @@ namespace scampad
                 else
                     //Just use the variable
                     changesLabel.Text = String.Format(changesLabel.Text, filename);
+
+                if (((Form1)Owner).CurrentFile.Length > 13)
+                    this.Size = this.MaximumSize;
             }
             //If it is
             else
