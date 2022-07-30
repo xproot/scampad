@@ -55,7 +55,7 @@ namespace scampad
                     Thread.Sleep(rand.Next(1000, 15000));
                 }
             }
-            lineStatusLabel.Text = String.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
+            lineStatusLabel.Text = string.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
         }
 
         public Form1()
