@@ -51,6 +51,7 @@ namespace scampad
                 CutMenuItem.Enabled = false;
                 CopyMenuItem.Enabled = false;
                 SearchBingMenuItem.Enabled = false;
+                //If random number 0-1000 is smaller than 9
                 if (rand.Next(0,1000) < 9)
                     notepad.Text = notepad.Text.Replace("scan", "scam");
                 //Rand is smaller than 10
@@ -62,6 +63,7 @@ namespace scampad
                     //Sleep for *random* 1 second to 15 seconds
                     Thread.Sleep(rand.Next(1000, 15000));
             }
+            //Update Line and Column text
             lineStatusLabel.Text = String.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
         }
 
