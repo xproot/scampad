@@ -6,6 +6,7 @@ using System.Web;
 using System.Diagnostics;
 using System.Drawing.Printing;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace scampad
 {
@@ -24,6 +25,13 @@ namespace scampad
         readonly PrintDialog prd = new PrintDialog();
         readonly PrintDocument pd = new PrintDocument(); 
         bool ischanged = false;
+
+        [DllImport("shell32.dll")]
+        public static extern Int32 ShellAboutA(
+            IntPtr hWnd,
+            string szApp,
+            string szOtherStuff,
+            IntPtr hIcon);
 
         //Function ran when an Interaction happened with the notepad textbox
         public void OnInteraction()
@@ -397,7 +405,7 @@ namespace scampad
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("winver");
+            ShellAboutA(this.Handle, "Notepad", "", this.Icon.Handle);
         }
         #endregion
     }

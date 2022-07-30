@@ -372,7 +372,7 @@
             // SearchBingMenuItem
             // 
             this.SearchBingMenuItem.Enabled = false;
-            this.SearchBingMenuItem.Name = "SearchWithBingButton";
+            this.SearchBingMenuItem.Name = "SearchBingMenuItem";
             this.SearchBingMenuItem.Size = new System.Drawing.Size(196, 22);
             this.SearchBingMenuItem.Text = "Search with Bing...";
             this.SearchBingMenuItem.Click += new System.EventHandler(this.SearchBing);
@@ -538,26 +538,26 @@
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
             this.indexToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.indexToolStripMenuItem.ShowShortcutKeys = false;
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.indexToolStripMenuItem.Text = "&View Help";
             this.indexToolStripMenuItem.Click += new System.EventHandler(this.indexToolStripMenuItem_Click);
             // 
             // feedToolStripMenuItem
             // 
             this.feedToolStripMenuItem.Name = "feedToolStripMenuItem";
-            this.feedToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.feedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.feedToolStripMenuItem.Text = "&Send Feedback";
             this.feedToolStripMenuItem.Click += new System.EventHandler(this.feedToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&About Notepad";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -575,10 +575,10 @@
             this.notepad.Size = new System.Drawing.Size(804, 409);
             this.notepad.TabIndex = 2;
             this.notepad.TextChanged += new System.EventHandler(this.NotepadTextChanged);
+            this.notepad.DragDrop += new System.Windows.Forms.DragEventHandler(this.NotepadDragDrop);
+            this.notepad.DragEnter += new System.Windows.Forms.DragEventHandler(this.NotepadDragEnter);
             this.notepad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.NotepadOnKeyUp);
             this.notepad.MouseUp += new System.Windows.Forms.MouseEventHandler(this.NotepadOnMouseUp);
-            this.notepad.DragEnter += new System.Windows.Forms.DragEventHandler(this.NotepadDragEnter);
-            this.notepad.DragDrop += new System.Windows.Forms.DragEventHandler(this.NotepadDragDrop);
             // 
             // borderPanel
             // 
