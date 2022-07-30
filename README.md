@@ -20,10 +20,13 @@ dont trust these percentages idk how it really works tbh
 along with everything from notepad
 **EXCEPT:**
 - Printing (window shows up but i didnt implement printing)
-- Find and Go To (too lazy to figure out how to implement them)
+- Find (too lazy to figure out how to implement that)
 - Font Customization (also too lazy)
 - About (shows winver because lazy to figure out how to make my own winver)
 - Text file drag and drop (no idea how to, normal text dragged from another text box works.)
+- Go To and Line&Column are broken on Word Wrap, GoTo has a patch that just disables word wrap for a second and Line&Column doesn't care
+- Go To is also kinda broken 
+- Anything I missed about notepad
 
 ## Build instructions
 honestly i usually make good readmes but i honestly dont know how this works you just get visual studio and run the sln i guess?

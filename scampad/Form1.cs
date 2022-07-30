@@ -322,7 +322,9 @@ namespace scampad
 
         private void goToToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Something happened.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            GoToBox gobo = new GoToBox();
+            gobo.ShowDialog(this);
+            gobo.Dispose();
         }
 
         private void DocumentSelectAll(object sender, EventArgs e)
