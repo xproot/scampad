@@ -602,6 +602,7 @@
             this.Name = "Form1";
             this.Text = "{0} - Notepad";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.bottomStrip.ResumeLayout(false);
             this.bottomStrip.PerformLayout();
             this.topStrip.ResumeLayout(false);

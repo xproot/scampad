@@ -18,14 +18,16 @@ namespace scampad
         String DefaultZoom;
         String DesignLnStatus;
         String OriginalText;
-        String CurrentFile;
+        internal String CurrentFile;
         readonly String[] vocabulary = new string[] {" this is not easy", "wbasbd", " what happened?", " please give me your creditcard info sir",
             " this costs $1400 per month", " not", " please no", " do not do it", " go to your bank", "this is not important" };
         readonly PageSetupDialog psd = new PageSetupDialog();
         readonly PrintDialog prd = new PrintDialog();
         readonly PrintDocument pd = new PrintDocument(); 
         bool ischanged = false;
+        internal bool doClose = true;
 
+        //Import the ShellAboutA function from shell32.dll
         [DllImport("shell32.dll")]
         public static extern Int32 ShellAboutA(
             IntPtr hWnd,
@@ -75,6 +77,7 @@ namespace scampad
             lineStatusLabel.Text = String.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
         }
 
+        #region Form1
         public Form1()
         {
             InitializeComponent();
@@ -114,6 +117,27 @@ namespace scampad
                 }
             } catch { }
         }
+
+        //If the form is closing
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //If the file has changed
+            if (ischanged)
+            {
+                //Show a "Want to save?" Dialog
+                SaveQuestionBox sqb = new SaveQuestionBox();
+                sqb.ShowDialog(this);
+                sqb.Dispose();
+                //If we dont want to close
+                if (!doClose)
+                {
+                    //Stop closing
+                    e.Cancel = true;
+                    doClose = true;
+                }
+            }
+        }
+        #endregion
 
         #region notepad Text Box
         private void NotepadTextChanged(object sender, EventArgs e)
@@ -197,7 +221,7 @@ namespace scampad
             ofd.Dispose();
         }
 
-        private void SaveDocument(object sender, EventArgs e)
+        internal void SaveDocument(object sender, EventArgs e)
         {
             if (CurrentFile != null && CurrentFile != String.Empty)
             {
@@ -224,7 +248,7 @@ namespace scampad
                     catch { MessageBox.Show("Unable to save!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
                     ischanged = false;
                     this.Text = String.Format(DesignTitle, Path.GetFileName(sfd.FileName));
-                }
+                } else { doClose = false; }
                 sfd.Dispose();
             }
         }
