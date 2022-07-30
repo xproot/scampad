@@ -23,14 +23,18 @@ namespace scampad
         {
             //Get the filename
             String filename = ((Form1)Owner).CurrentFile;
-            //If it's longer than 41 characters
-            if(((Form1)Owner).CurrentFile.Length > 41)
-                //Truncate it
-                filename = ((Form1)Owner).CurrentFile.Substring(0,38) + "...";
             //If the filename is not null
             if (((Form1)Owner).CurrentFile != null)
-                //Use it for the text
-                changesLabel.Text = String.Format(changesLabel.Text, filename);
+            {
+                //If it's longer than 41 characters
+                if (((Form1)Owner).CurrentFile.Length > 41)
+                    //Truncate it
+                    filename = ((Form1)Owner).CurrentFile.Substring(0, 38) + "...";
+                //If not
+                else
+                    //Just use the variable
+                    changesLabel.Text = String.Format(changesLabel.Text, filename);
+            }
             //If it is
             else
                 //Use untitled for the text
