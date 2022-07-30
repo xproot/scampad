@@ -150,10 +150,12 @@ namespace scampad
 
         private void OpenDocument(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Open";
-            ofd.Filter = "Text Documents|*.txt|All Files (*.*)|*.*";
-            ofd.Multiselect = false;
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "Open",
+                Filter = "Text Documents|*.txt|All Files (*.*)|*.*",
+                Multiselect = false
+            };
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 if (File.Exists(ofd.FileName))
