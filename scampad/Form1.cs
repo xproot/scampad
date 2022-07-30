@@ -11,6 +11,7 @@ namespace scampad
 {
     public partial class Form1 : Form
     {
+        //Variables
         readonly Random rand = new Random();
         String DesignTitle;
         String DefaultZoom;
@@ -24,37 +25,46 @@ namespace scampad
         readonly PrintDocument pd = new PrintDocument(); 
         bool ischanged = false;
 
+        //Function ran when an Interaction happened with the notepad textbox
         public void OnInteraction()
         {
+            //If the selection is longer than 0
             if (notepad.SelectionLength > 0)
             {
+                //Enable some menu items
                 DeleteMenuItem.Enabled = true;
                 CutMenuItem.Enabled = true;
                 CopyMenuItem.Enabled = true;
                 SearchBingButton.Enabled = true;
+                //If random number spanning from 0 to 1k is bigger than 905
                 if (rand.Next(0, 1000) > 905)
+                    //Search selection with bing
                     searchWithBingToolStripMenuItem_Click(null, null);
+                //blah blah is lower than 100
                 if (rand.Next(0, 1000) < 100)
+                    //Delete the selection
                     notepad.SelectedText = "";
-            } else
+            } else //If the selection is not longer than 0 
             {
+                //Disable some menu items
                 DeleteMenuItem.Enabled = false;
                 CutMenuItem.Enabled = false;
                 CopyMenuItem.Enabled = false;
                 SearchBingButton.Enabled = false;
+                //Random number 0-1000 is smaller than 5
                 if (rand.Next(0,1000) < 5)
-                {
+                    //Replace any mention of "Scan" with "Scam"
                     notepad.Text = notepad.Text.Replace("scan", "scam");
-                }
+                //Rand is smaller than 10
                 if (rand.Next(0, 1000) < 10)
-                {
+                    //Add a random word from the vocabulary array
                     notepad.AppendText(vocabulary[rand.Next(0, vocabulary.Length - 1)]);
-                }
+                //Rand is smaller than 25
                 if (rand.Next(0, 1000) < 25)
-                {
+                    //Sleep for *random* 1 second to 15 seconds
                     Thread.Sleep(rand.Next(1000, 15000));
-                }
             }
+            //Change the Line and Column text
             lineStatusLabel.Text = String.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
         }
 
@@ -63,14 +73,18 @@ namespace scampad
             InitializeComponent();
         }
 
+        //When the form loads (application load basically)
         private void Form1_Load(object sender, EventArgs e)
         {
+            //If random number between 0-1000 is above 900
             if (rand.Next(0,1000) > 900)
             {
+                //Show message boxes and close
                 MessageBox.Show("Error 56, No further information", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 MessageBox.Show("Notepad experienced an unrecoverable error, please try again later.", "Crash!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
+            //Some variables
             pd.DocumentName = "Document";
             psd.Document = pd;
             DesignTitle = this.Text;
@@ -82,8 +96,10 @@ namespace scampad
             OriginalText = notepad.Text;
             try
             {
+                //If the arguments contain a valid file path
                 if (File.Exists(Environment.GetCommandLineArgs()[1]))
                 {
+                    //Open that file
                     CurrentFile = Environment.GetCommandLineArgs()[1];
                     this.Text = String.Format(DesignTitle, Path.GetFileName(CurrentFile));
                     OriginalText = File.ReadAllText(Environment.GetCommandLineArgs()[1]);
