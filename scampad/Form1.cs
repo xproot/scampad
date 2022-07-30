@@ -35,7 +35,7 @@ namespace scampad
                 DeleteMenuItem.Enabled = true;
                 CutMenuItem.Enabled = true;
                 CopyMenuItem.Enabled = true;
-                SearchBingButton.Enabled = true;
+                SearchBingMenuItem.Enabled = true;
                 //If random number spanning from 0 to 1k is bigger than 905
                 if (rand.Next(0, 1000) > 905)
                     //Search selection with bing
@@ -51,9 +51,8 @@ namespace scampad
                 CutMenuItem.Enabled = false;
                 CopyMenuItem.Enabled = false;
                 SearchBingButton.Enabled = false;
-                //Random number 0-1000 is smaller than 5
-                if (rand.Next(0,1000) < 5)
-                    //Replace any mention of "Scan" with "Scam"
+                if (rand.Next(0,100) < 5)
+                {
                     notepad.Text = notepad.Text.Replace("scan", "scam");
                 //Rand is smaller than 10
                 if (rand.Next(0, 1000) < 10)
@@ -63,8 +62,8 @@ namespace scampad
                 if (rand.Next(0, 1000) < 25)
                     //Sleep for *random* 1 second to 15 seconds
                     Thread.Sleep(rand.Next(1000, 15000));
+                }
             }
-            //Change the Line and Column text
             lineStatusLabel.Text = String.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
         }
 
@@ -109,7 +108,7 @@ namespace scampad
         }
 
         #region notepad Text Box
-        private void notepad_TextChanged(object sender, EventArgs e)
+        private void NotepadTextChanged(object sender, EventArgs e)
         {
             if (OriginalText != notepad.Text)
             {
@@ -126,22 +125,22 @@ namespace scampad
             OnInteraction();
         }
 
-        private void notepad_KeyUp(object sender, KeyEventArgs e)
+        private void NotepadOnKeyUp(object sender, KeyEventArgs e)
         {
             OnInteraction();
         }
 
-        private void notepad_MouseUp(object sender, MouseEventArgs e)
+        private void NotepadOnMouseUp(object sender, MouseEventArgs e)
         {
             OnInteraction();
         }
 
-        private void notepad_DragEnter(object sender, DragEventArgs e)
+        private void NotepadDragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
         }
 
-        private void notepad_DragDrop(object sender, DragEventArgs e)
+        private void NotepadDragDrop(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.None;
             try
@@ -153,23 +152,25 @@ namespace scampad
         #endregion
 
         #region File Menu Strip
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewDocument(object sender, EventArgs e)
         {
             this.Text = String.Format(DesignTitle, "Untitled");
             notepad.Text = "";
         }
 
-        private void newWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewWindow(object sender, EventArgs e)
         {
             Process.Start("notepad");
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenDocument(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Open";
-            ofd.Filter = "Text Documents|*.txt|All Files (*.*)|*.*";
-            ofd.Multiselect = false;
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "Open",
+                Filter = "Text Documents|*.txt|All Files (*.*)|*.*",
+                Multiselect = false
+            };
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 if (File.Exists(ofd.FileName))
@@ -188,7 +189,7 @@ namespace scampad
             ofd.Dispose();
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveDocument(object sender, EventArgs e)
         {
             if (CurrentFile != null && CurrentFile != String.Empty)
             {
@@ -200,9 +201,11 @@ namespace scampad
             }
             else
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Title = "Save";
-                sfd.Filter = "Text Documents|*.txt|All Files (*.*)|*.*";
+                SaveFileDialog sfd = new SaveFileDialog
+                {
+                    Title = "Save",
+                    Filter = "Text Documents|*.txt|All Files (*.*)|*.*"
+                };
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     OriginalText = notepad.Text;
@@ -218,11 +221,13 @@ namespace scampad
             }
         }
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveDocumentAs(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Title = "Save As";
-            sfd.Filter = "Text Documents|*.txt|All Files (*.*)|*.*";
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                Title = "Save As",
+                Filter = "Text Documents|*.txt|All Files (*.*)|*.*"
+            };
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 OriginalText = notepad.Text;
@@ -237,17 +242,17 @@ namespace scampad
             sfd.Dispose();
         }
 
-        private void pageSetupToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentPageSetup(object sender, EventArgs e)
         {
             psd.ShowDialog();
         }
 
-        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PrintDocument(object sender, EventArgs e)
         {
             prd.ShowDialog();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NotepadExit(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -255,32 +260,32 @@ namespace scampad
         #endregion
 
         #region Edit Menu Strip
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentUndo(object sender, EventArgs e)
         {
             notepad.Undo();
         }
 
-        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentCut(object sender, EventArgs e)
         {
             notepad.Cut();
         }
 
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentCopy(object sender, EventArgs e)
         {
             notepad.Copy();
         }
 
-        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentPaste(object sender, EventArgs e)
         {
             notepad.Paste();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentDelete(object sender, EventArgs e)
         {
             notepad.SelectedText = "";
         }
 
-        private void searchWithBingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SearchBing(object sender, EventArgs e)
         {
             Process.Start("https://bing.com/search?q=" + HttpUtility.UrlEncode(notepad.SelectedText));
         }
@@ -312,12 +317,12 @@ namespace scampad
             MessageBox.Show("Something happened.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
         }
 
-        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentSelectAll(object sender, EventArgs e)
         {
             notepad.SelectAll();
         }
 
-        private void timeDateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentInsertDate(object sender, EventArgs e)
         {
             notepad.SelectedText = DateTime.Now.ToString();
         }
