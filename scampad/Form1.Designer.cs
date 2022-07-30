@@ -58,7 +58,7 @@
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.SearchBingButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchBingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findNextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findPreviousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -296,7 +296,7 @@
             this.pasteToolStripMenuItem,
             this.DeleteMenuItem,
             this.toolStripSeparator4,
-            this.SearchBingButton,
+            this.SearchBingMenuItem,
             this.findToolStripMenuItem,
             this.findNextToolStripMenuItem,
             this.findPreviousToolStripMenuItem,
@@ -371,11 +371,11 @@
             // 
             // SearchWithBingButton
             // 
-            this.SearchBingButton.Enabled = false;
-            this.SearchBingButton.Name = "SearchWithBingButton";
-            this.SearchBingButton.Size = new System.Drawing.Size(196, 22);
-            this.SearchBingButton.Text = "Search with Bing...";
-            this.SearchBingButton.Click += new System.EventHandler(this.SearchBing);
+            this.SearchBingMenuItem.Enabled = false;
+            this.SearchBingMenuItem.Name = "SearchWithBingButton";
+            this.SearchBingMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.SearchBingMenuItem.Text = "Search with Bing...";
+            this.SearchBingMenuItem.Click += new System.EventHandler(this.SearchBing);
             // 
             // findToolStripMenuItem
             // 
@@ -658,7 +658,7 @@
         private System.Windows.Forms.ToolStripMenuItem newWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pageSetupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem SearchBingButton;
+        private System.Windows.Forms.ToolStripMenuItem SearchBingMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findNextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findPreviousToolStripMenuItem;

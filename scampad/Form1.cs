@@ -31,7 +31,7 @@ namespace scampad
                 DeleteMenuItem.Enabled = true;
                 CutMenuItem.Enabled = true;
                 CopyMenuItem.Enabled = true;
-                SearchBingButton.Enabled = true;
+                SearchBingMenuItem.Enabled = true;
                 if (rand.Next(0, 100) > 95)
                     SearchBing(null, null);
                 if (rand.Next(0, 100) < 10)
@@ -41,7 +41,7 @@ namespace scampad
                 DeleteMenuItem.Enabled = false;
                 CutMenuItem.Enabled = false;
                 CopyMenuItem.Enabled = false;
-                SearchBingButton.Enabled = false;
+                SearchBingMenuItem.Enabled = false;
                 if (rand.Next(0,100) < 5)
                 {
                     notepad.Text = notepad.Text.Replace("scan", "scam");
