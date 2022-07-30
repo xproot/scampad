@@ -120,12 +120,12 @@ namespace scampad
             OnInteraction();
         }
 
-        private void notepad_DragEnter(object sender, DragEventArgs e)
+        private void NotepadDragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
         }
 
-        private void notepad_DragDrop(object sender, DragEventArgs e)
+        private void NotepadDragDrop(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.None;
             try

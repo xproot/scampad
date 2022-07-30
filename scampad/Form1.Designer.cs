@@ -574,11 +574,11 @@
             this.notepad.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.notepad.Size = new System.Drawing.Size(800, 408);
             this.notepad.TabIndex = 2;
-            this.notepad.TextChanged += new System.EventHandler(this.notepad_TextChanged);
-            this.notepad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.notepad_KeyUp);
-            this.notepad.MouseUp += new System.Windows.Forms.MouseEventHandler(this.notepad_MouseUp);
-            this.notepad.DragEnter += new System.Windows.Forms.DragEventHandler(this.notepad_DragEnter);
-            this.notepad.DragDrop += new System.Windows.Forms.DragEventHandler(this.notepad_DragDrop);
+            this.notepad.TextChanged += new System.EventHandler(this.NotepadTextChanged);
+            this.notepad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.NotepadOnKeyUp);
+            this.notepad.MouseUp += new System.Windows.Forms.MouseEventHandler(this.NotepadOnMouseUp);
+            this.notepad.DragEnter += new System.Windows.Forms.DragEventHandler(this.NotepadDragEnter);
+            this.notepad.DragDrop += new System.Windows.Forms.DragEventHandler(this.NotepadDragDrop);
             // 
             // borderPanel
             // 
