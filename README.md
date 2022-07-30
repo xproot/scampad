@@ -9,10 +9,10 @@ Notepad clone designed to annoy the user, originally made for scambaiting.
 ## Features
 dont trust these percentages idk how it really works tbh
 - ~10% chance of fake crash on startup
-- ~2.5% chance of hanging for 1-15s while use
+- ~1.2% chance of hanging for 1-15s while use
 - ~10% chance of deleting selection
-- ~0.5% chance of changing all "scan" to "scam"
-- ~1% chance of inserting a random string from this array
+- ~0.9% chance of changing all "scan" to "scam"
+- ~0.4% chance of inserting a random string from this array
 > " this is not easy", "wbasbd", " what happened?", " please give me your creditcard info sir",
             " this costs $1400 per month", " not", " please no", " do not do it", " go to your bank", "this is not important"
 - ~9.5% chance of opening bing with the selected text
