@@ -22,7 +22,6 @@ along with everything from notepad
 - Printing (window shows up but i didnt implement printing)
 - Find (too lazy to figure out how to implement that)
 - Font Customization (also too lazy)
-- About (shows winver because lazy to figure out how to make my own winver)
 - Text file drag and drop (no idea how to, normal text dragged from another text box works.)
 - Go To and Line&Column are broken on Word Wrap, GoTo has a patch that just disables word wrap for a second and Line&Column doesn't care
 - Go To is also kinda broken 
