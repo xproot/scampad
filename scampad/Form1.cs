@@ -39,7 +39,7 @@ namespace scampad
                 //If random number spanning from 0 to 1k is bigger than 905
                 if (rand.Next(0, 1000) > 905)
                     //Search selection with bing
-                    searchWithBingToolStripMenuItem_Click(null, null);
+                    SearchBing(null, null);
                 //blah blah is lower than 100
                 if (rand.Next(0, 1000) < 100)
                     //Delete the selection
@@ -50,19 +50,17 @@ namespace scampad
                 DeleteMenuItem.Enabled = false;
                 CutMenuItem.Enabled = false;
                 CopyMenuItem.Enabled = false;
-                SearchBingButton.Enabled = false;
-                if (rand.Next(0,100) < 5)
-                {
+                SearchBingMenuItem.Enabled = false;
+                if (rand.Next(0,1000) < 9)
                     notepad.Text = notepad.Text.Replace("scan", "scam");
                 //Rand is smaller than 10
-                if (rand.Next(0, 1000) < 10)
+                if (rand.Next(0, 1000) < 4)
                     //Add a random word from the vocabulary array
                     notepad.AppendText(vocabulary[rand.Next(0, vocabulary.Length - 1)]);
                 //Rand is smaller than 25
-                if (rand.Next(0, 1000) < 25)
+                if (rand.Next(0, 1000) < 12)
                     //Sleep for *random* 1 second to 15 seconds
                     Thread.Sleep(rand.Next(1000, 15000));
-                }
             }
             lineStatusLabel.Text = String.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
         }
