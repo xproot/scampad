@@ -302,7 +302,9 @@ namespace scampad
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Something happened.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            ReplaceBox rebo = new ReplaceBox();
+            rebo.ShowDialog(this);
+            rebo.Dispose();
         }
 
         private void goToToolStripMenuItem_Click(object sender, EventArgs e)
