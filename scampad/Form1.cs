@@ -184,9 +184,11 @@ namespace scampad
             }
             else
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Title = "Save";
-                sfd.Filter = "Text Documents|*.txt|All Files (*.*)|*.*";
+                SaveFileDialog sfd = new SaveFileDialog
+                {
+                    Title = "Save",
+                    Filter = "Text Documents|*.txt|All Files (*.*)|*.*"
+                };
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     OriginalText = notepad.Text;
@@ -204,9 +206,11 @@ namespace scampad
 
         private void SaveDocumentAs(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Title = "Save As";
-            sfd.Filter = "Text Documents|*.txt|All Files (*.*)|*.*";
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                Title = "Save As",
+                Filter = "Text Documents|*.txt|All Files (*.*)|*.*"
+            };
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 OriginalText = notepad.Text;
