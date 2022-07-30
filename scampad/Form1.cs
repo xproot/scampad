@@ -32,9 +32,9 @@ namespace scampad
                 CutMenuItem.Enabled = true;
                 CopyMenuItem.Enabled = true;
                 SearchBingButton.Enabled = true;
-                if (rand.Next(0, 100) > 95)
+                if (rand.Next(0, 1000) > 905)
                     searchWithBingToolStripMenuItem_Click(null, null);
-                if (rand.Next(0, 100) < 10)
+                if (rand.Next(0, 1000) < 100)
                     notepad.SelectedText = "";
             } else
             {
@@ -42,15 +42,15 @@ namespace scampad
                 CutMenuItem.Enabled = false;
                 CopyMenuItem.Enabled = false;
                 SearchBingButton.Enabled = false;
-                if (rand.Next(0,100) < 5)
+                if (rand.Next(0,1000) < 5)
                 {
                     notepad.Text = notepad.Text.Replace("scan", "scam");
                 }
-                if (rand.Next(0, 100) < 1)
+                if (rand.Next(0, 1000) < 10)
                 {
                     notepad.AppendText(vocabulary[rand.Next(0, vocabulary.Length - 1)]);
                 }
-                if (rand.Next(0, 100) < 1)
+                if (rand.Next(0, 1000) < 25)
                 {
                     Thread.Sleep(rand.Next(1000, 15000));
                 }
@@ -65,7 +65,7 @@ namespace scampad
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (rand.Next(0,100) > 90)
+            if (rand.Next(0,1000) > 900)
             {
                 MessageBox.Show("Error 56, No further information", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 MessageBox.Show("Notepad experienced an unrecoverable error, please try again later.", "Crash!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
