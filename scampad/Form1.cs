@@ -33,7 +33,7 @@ namespace scampad
                 CopyMenuItem.Enabled = true;
                 SearchBingButton.Enabled = true;
                 if (rand.Next(0, 100) > 95)
-                    searchWithBingToolStripMenuItem_Click(null, null);
+                    SearchBing(null, null);
                 if (rand.Next(0, 100) < 10)
                     notepad.SelectedText = "";
             } else
@@ -93,7 +93,7 @@ namespace scampad
         }
 
         #region notepad Text Box
-        private void notepad_TextChanged(object sender, EventArgs e)
+        private void NotepadTextChanged(object sender, EventArgs e)
         {
             if (OriginalText != notepad.Text)
             {
@@ -110,12 +110,12 @@ namespace scampad
             OnInteraction();
         }
 
-        private void notepad_KeyUp(object sender, KeyEventArgs e)
+        private void NotepadOnKeyUp(object sender, KeyEventArgs e)
         {
             OnInteraction();
         }
 
-        private void notepad_MouseUp(object sender, MouseEventArgs e)
+        private void NotepadOnMouseUp(object sender, MouseEventArgs e)
         {
             OnInteraction();
         }
@@ -137,18 +137,18 @@ namespace scampad
         #endregion
 
         #region File Menu Strip
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewDocument(object sender, EventArgs e)
         {
             this.Text = String.Format(DesignTitle, "Untitled");
             notepad.Text = "";
         }
 
-        private void newWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewWindow(object sender, EventArgs e)
         {
             Process.Start("notepad");
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenDocument(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Open";
@@ -172,7 +172,7 @@ namespace scampad
             ofd.Dispose();
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveDocument(object sender, EventArgs e)
         {
             if (CurrentFile != null && CurrentFile != String.Empty)
             {
@@ -202,7 +202,7 @@ namespace scampad
             }
         }
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveDocumentAs(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Title = "Save As";
@@ -221,17 +221,17 @@ namespace scampad
             sfd.Dispose();
         }
 
-        private void pageSetupToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentPageSetup(object sender, EventArgs e)
         {
             psd.ShowDialog();
         }
 
-        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PrintDocument(object sender, EventArgs e)
         {
             prd.ShowDialog();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NotepadExit(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -239,32 +239,32 @@ namespace scampad
         #endregion
 
         #region Edit Menu Strip
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentUndo(object sender, EventArgs e)
         {
             notepad.Undo();
         }
 
-        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentCut(object sender, EventArgs e)
         {
             notepad.Cut();
         }
 
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentCopy(object sender, EventArgs e)
         {
             notepad.Copy();
         }
 
-        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentPaste(object sender, EventArgs e)
         {
             notepad.Paste();
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentDelete(object sender, EventArgs e)
         {
             notepad.SelectedText = "";
         }
 
-        private void searchWithBingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SearchBing(object sender, EventArgs e)
         {
             Process.Start("https://bing.com/search?q=" + HttpUtility.UrlEncode(notepad.SelectedText));
         }
@@ -294,12 +294,12 @@ namespace scampad
             MessageBox.Show("Something happened.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
         }
 
-        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentSelectAll(object sender, EventArgs e)
         {
             notepad.SelectAll();
         }
 
-        private void timeDateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DocumentInsertDate(object sender, EventArgs e)
         {
             notepad.SelectedText = DateTime.Now.ToString();
         }

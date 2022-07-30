@@ -211,7 +211,7 @@
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.newToolStripMenuItem.Text = "&New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.NewDocument);
             // 
             // newWindowToolStripMenuItem
             // 
@@ -220,7 +220,7 @@
             | System.Windows.Forms.Keys.N)));
             this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.newWindowToolStripMenuItem.Text = "New Window";
-            this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.newWindowToolStripMenuItem_Click);
+            this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.NewWindow);
             // 
             // openToolStripMenuItem
             // 
@@ -230,7 +230,7 @@
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.openToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.openToolStripMenuItem.Text = "&Open...";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenDocument);
             // 
             // saveToolStripMenuItem
             // 
@@ -240,7 +240,7 @@
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.saveToolStripMenuItem.Text = "&Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveDocument);
             // 
             // saveAsToolStripMenuItem
             // 
@@ -249,7 +249,7 @@
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.saveAsToolStripMenuItem.Text = "Save &As...";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveDocumentAs);
             // 
             // toolStripSeparator1
             // 
@@ -261,7 +261,7 @@
             this.pageSetupToolStripMenuItem.Name = "pageSetupToolStripMenuItem";
             this.pageSetupToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.pageSetupToolStripMenuItem.Text = "Page Setup...";
-            this.pageSetupToolStripMenuItem.Click += new System.EventHandler(this.pageSetupToolStripMenuItem_Click);
+            this.pageSetupToolStripMenuItem.Click += new System.EventHandler(this.DocumentPageSetup);
             // 
             // printToolStripMenuItem
             // 
@@ -271,7 +271,7 @@
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.printToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.printToolStripMenuItem.Text = "&Print";
-            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.PrintDocument);
             // 
             // toolStripSeparator2
             // 
@@ -283,7 +283,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.NotepadExit);
             // 
             // editToolStripMenuItem
             // 
@@ -316,7 +316,7 @@
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
-            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.DocumentUndo);
             // 
             // toolStripSeparator3
             // 
@@ -332,7 +332,7 @@
             this.CutMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.CutMenuItem.Size = new System.Drawing.Size(196, 22);
             this.CutMenuItem.Text = "Cu&t";
-            this.CutMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+            this.CutMenuItem.Click += new System.EventHandler(this.DocumentCut);
             // 
             // CopyButton
             // 
@@ -343,7 +343,7 @@
             this.CopyMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.CopyMenuItem.Size = new System.Drawing.Size(196, 22);
             this.CopyMenuItem.Text = "&Copy";
-            this.CopyMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            this.CopyMenuItem.Click += new System.EventHandler(this.DocumentCopy);
             // 
             // pasteToolStripMenuItem
             // 
@@ -353,7 +353,7 @@
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.pasteToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.pasteToolStripMenuItem.Text = "&Paste";
-            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.DocumentPaste);
             // 
             // deleteToolStripMenuItem
             // 
@@ -362,7 +362,7 @@
             this.DeleteMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.DeleteMenuItem.Size = new System.Drawing.Size(196, 22);
             this.DeleteMenuItem.Text = "Delete";
-            this.DeleteMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.DeleteMenuItem.Click += new System.EventHandler(this.DocumentDelete);
             // 
             // toolStripSeparator4
             // 
@@ -375,7 +375,7 @@
             this.SearchBingButton.Name = "SearchWithBingButton";
             this.SearchBingButton.Size = new System.Drawing.Size(196, 22);
             this.SearchBingButton.Text = "Search with Bing...";
-            this.SearchBingButton.Click += new System.EventHandler(this.searchWithBingToolStripMenuItem_Click);
+            this.SearchBingButton.Click += new System.EventHandler(this.SearchBing);
             // 
             // findToolStripMenuItem
             // 
@@ -428,7 +428,7 @@
             this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
-            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
+            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.DocumentSelectAll);
             // 
             // timeDateToolStripMenuItem
             // 
@@ -436,7 +436,7 @@
             this.timeDateToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.timeDateToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.timeDateToolStripMenuItem.Text = "Time/Date";
-            this.timeDateToolStripMenuItem.Click += new System.EventHandler(this.timeDateToolStripMenuItem_Click);
+            this.timeDateToolStripMenuItem.Click += new System.EventHandler(this.DocumentInsertDate);
             // 
             // toolsToolStripMenuItem
             // 
