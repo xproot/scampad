@@ -186,8 +186,25 @@ namespace scampad
         #region File Menu Strip
         private void NewDocument(object sender, EventArgs e)
         {
-            this.Text = String.Format(DesignTitle, "Untitled");
-            notepad.Text = "";
+            if (ischanged)
+            {
+                //Show a "Want to save?" Dialog
+                SaveQuestionBox sqb = new SaveQuestionBox();
+                sqb.ShowDialog(this);
+                sqb.Dispose();
+                //If we don't want to close the document
+                if (!doClose)
+                {
+                    //Some variable cleanup lol
+                    doClose = true;
+                }
+                //If we do
+                else {
+                    ischanged = false;
+                    this.Text = String.Format(DesignTitle, "Untitled");
+                    notepad.Text = "";
+                }
+            }
         }
 
         private void NewWindow(object sender, EventArgs e)
