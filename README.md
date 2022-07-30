@@ -20,7 +20,7 @@ dont trust these percentages idk how it really works tbh
 along with everything from notepad
 **EXCEPT:**
 - Printing (window shows up but i didnt implement printing)
-- Find, Replace and Go To (too lazy to figure out how to implement them)
+- Find and Go To (too lazy to figure out how to implement them)
 - Font Customization (also too lazy)
 - About (shows winver because lazy to figure out how to make my own winver)
 - Text file drag and drop (no idea how to, normal text dragged from another text box works.)
