@@ -11,17 +11,18 @@ dont trust these percentages idk how it really works tbh
 - ~10% chance of fake crash on startup
 - ~1.2% chance of hanging for 1-15s while use
 - ~10% chance of deleting selection
-- ~0.9% chance of changing all "scan" to "scam"
-- ~0.4% chance of inserting a random string from this array
+- ~0.4% chance of changing all "scan" to "scam"
+- ~0.8% chance of Changing the font to one of these
+> "Webdings", "Comic Sans MS", "Impact", "Segoe Script", "Symbol"
+- ~0.4% chance of inserting one of these strings
 > " this is not easy", "wbasbd", " what happened?", " please give me your creditcard info sir",
-            " this costs $1400 per month", " not", " please no", " do not do it", " go to your bank", "this is not important"
+  " this costs $1400 per month", " not", " please no", " do not do it", " go to your bank", "this is not important"
 - ~9.5% chance of opening bing with the selected text
 
 along with everything from notepad
 **EXCEPT:**
 - Printing (window shows up but i didnt implement printing)
 - Find (too lazy to figure out how to implement that)
-- Font Customization (also too lazy)
 - Text file drag and drop (no idea how to, normal text dragged from another text box works.)
 - Go To and Line & Column are broken on Word Wrap, GoTo has a patch that just disables word wrap for a second and Line & Column doesn't care
 - Go To is also kinda broken 

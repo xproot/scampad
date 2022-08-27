@@ -21,12 +21,13 @@ namespace scampad
         String DesignLnStatus;
         String OriginalText;
         internal String CurrentFile;
-        readonly String[] vocabulary = new string[] {" this is not easy", "wbasbd", " what happened?", " please give me your creditcard info sir",
+        readonly String[] Vocabulary = new string[] {" this is not easy", "wbasbd", " what happened?", " please give me your creditcard info sir",
             " this costs $1400 per month", " not", " please no", " do not do it", " go to your bank", "this is not important" };
+        readonly String[] FontVocabulary = new string[] { "Webdings", "Comic Sans MS", "Impact", "Segoe Script", "Symbol" };
         readonly PageSetupDialog psd = new PageSetupDialog();
         readonly PrintDialog prd = new PrintDialog();
         readonly PrintDocument pd = new PrintDocument(); 
-        bool ischanged = false;
+        bool isChanged = false;
         internal bool doClose = true;
 
         //Import the ShellAboutA function from shell32.dll
@@ -58,22 +59,28 @@ namespace scampad
                     notepad.SelectedText = "";
             } else //If the selection is not longer than 0 
             {
+                //KEEP IN MIND THIS IS RAN EVERYTIME YOU INTERACT WITH THE TEXTBOX
+                //Thus why the random chances might seem higher than they really are.
+
                 //Disable some menu items
                 DeleteMenuItem.Enabled = false;
                 CutMenuItem.Enabled = false;
                 CopyMenuItem.Enabled = false;
                 SearchBingMenuItem.Enabled = false;
-                //If random number 0-1000 is smaller than 9
-                if (rand.Next(0,1000) < 9)
+                //If random number 0-1000 is smaller than 4
+                if (rand.Next(0,1000) < 4)
                     notepad.Text = notepad.Text.Replace("scan", "scam");
+                //If random number 0-1000 is smaller than 8
+                if (rand.Next(0, 1000) < 999)
+                    OriginalFont = new Font(FontVocabulary[rand.Next(0, FontVocabulary.Length - 1)], OriginalFont.Size); notepad.Font = new Font(OriginalFont.FontFamily, notepad.Font.Size);
                 //Rand is smaller than 10
                 if (rand.Next(0, 1000) < 4)
                     //Add a random word from the vocabulary array
-                    notepad.AppendText(vocabulary[rand.Next(0, vocabulary.Length - 1)]);
+                    notepad.AppendText(Vocabulary[rand.Next(0, Vocabulary.Length - 1)]);
                 //Rand is smaller than 25
-                if (rand.Next(0, 1000) < 12)
+                //if (rand.Next(0, 1000) < 12)
                     //Sleep for *random* 1 second to 15 seconds
-                    Thread.Sleep(rand.Next(1000, 15000));
+                    //Thread.Sleep(rand.Next(1000, 15000));
             }
             //Update Line and Column text
             lineStatusLabel.Text = String.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
@@ -125,7 +132,7 @@ namespace scampad
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             //If the file has changed
-            if (ischanged)
+            if (isChanged)
             {
                 //Show a "Want to save?" Dialog
                 SaveQuestionBox sqb = new SaveQuestionBox();
@@ -147,15 +154,15 @@ namespace scampad
         {
             if (OriginalText != notepad.Text)
             {
-                if (!ischanged)
+                if (!isChanged)
                     this.Text = "*" + this.Text;
-                ischanged = true;
+                isChanged = true;
             }
             else
             {
                 if (this.Text.Substring(0, 1) == "*")
                     this.Text = this.Text.Substring(1);
-                ischanged = false;
+                isChanged = false;
             }
             OnInteraction();
         }
@@ -189,7 +196,7 @@ namespace scampad
         #region File Menu Strip
         private void NewDocument(object sender, EventArgs e)
         {
-            if (ischanged)
+            if (isChanged)
             {
                 //Show a "Want to save?" Dialog
                 SaveQuestionBox sqb = new SaveQuestionBox();
@@ -203,7 +210,7 @@ namespace scampad
                 }
                 //If we do
                 else {
-                    ischanged = false;
+                    isChanged = false;
                     this.Text = String.Format(DesignTitle, "Untitled");
                     notepad.Text = "";
                 }
@@ -231,7 +238,7 @@ namespace scampad
                     OriginalText = File.ReadAllText(ofd.FileName, Encoding.UTF8);
                     if (this.Text.Substring(0, 1) == "*")
                         this.Text = this.Text.Substring(1);
-                    ischanged = false;
+                    isChanged = false;
                     notepad.Text = OriginalText;
                     this.Text = String.Format(DesignTitle, Path.GetFileName(ofd.FileName));
                 }
@@ -249,7 +256,7 @@ namespace scampad
                 OriginalText = notepad.Text;
                 if (this.Text.Substring(0, 1) == "*")
                     this.Text = this.Text.Substring(1);
-                ischanged = false;
+                isChanged = false;
             }
             else
             {
@@ -267,7 +274,7 @@ namespace scampad
                         CurrentFile = sfd.FileName;
                     }
                     catch { MessageBox.Show("Unable to save!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
-                    ischanged = false;
+                    isChanged = false;
                     this.Text = String.Format(DesignTitle, Path.GetFileName(sfd.FileName));
                 } else { doClose = false; }
                 sfd.Dispose();
@@ -290,7 +297,7 @@ namespace scampad
                     CurrentFile = sfd.FileName;
                 }
                 catch { MessageBox.Show("Unable to save!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
-                ischanged = false;
+                isChanged = false;
                 this.Text = String.Format(DesignTitle, Path.GetFileName(sfd.FileName));
             }
             sfd.Dispose();
@@ -403,6 +410,7 @@ namespace scampad
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FontDialog fontDialog = new FontDialog();
+            fontDialog.Font = notepad.Font;
             DialogResult _result = fontDialog.ShowDialog();
             if (_result == DialogResult.OK)
             {
