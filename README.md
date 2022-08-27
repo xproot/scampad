@@ -23,7 +23,7 @@ along with everything from notepad
 - Find (too lazy to figure out how to implement that)
 - Font Customization (also too lazy)
 - Text file drag and drop (no idea how to, normal text dragged from another text box works.)
-- Go To and Line&Column are broken on Word Wrap, GoTo has a patch that just disables word wrap for a second and Line&Column doesn't care
+- Go To and Line & Column are broken on Word Wrap, GoTo has a patch that just disables word wrap for a second and Line & Column doesn't care
 - Go To is also kinda broken 
 - Anything I forgot
 
