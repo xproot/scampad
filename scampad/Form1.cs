@@ -261,6 +261,7 @@ namespace scampad
                     try
                     {
                         File.WriteAllText(sfd.FileName, notepad.Text, Encoding.UTF8);
+                        CurrentFile = sfd.FileName;
                     }
                     catch { MessageBox.Show("Unable to save!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
                     ischanged = false;
@@ -283,6 +284,7 @@ namespace scampad
                 try
                 {
                     File.WriteAllText(sfd.FileName, notepad.Text, Encoding.UTF8);
+                    CurrentFile = sfd.FileName;
                 }
                 catch { MessageBox.Show("Unable to save!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Hand); }
                 ischanged = false;

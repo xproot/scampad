@@ -29,7 +29,7 @@ namespace scampad
                 //If it's longer than 41 characters
                 if (((Form1)Owner).CurrentFile.Length > 41)
                     //Truncate it
-                    filename = ((Form1)Owner).CurrentFile.Substring(0, 38) + "...";
+                    String.Format(changesLabel.Text, ((Form1)Owner).CurrentFile.Substring(0, 38) + "...");
                 //If not
                 else
                     //Just use the variable
