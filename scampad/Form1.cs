@@ -78,9 +78,9 @@ namespace scampad
                     //Add a random word from the vocabulary array
                     notepad.AppendText(Vocabulary[rand.Next(0, Vocabulary.Length - 1)]);
                 //Rand is smaller than 25
-                //if (rand.Next(0, 1000) < 12)
+                if (rand.Next(0, 1000) < 12)
                     //Sleep for *random* 1 second to 15 seconds
-                    //Thread.Sleep(rand.Next(1000, 15000));
+                    Thread.Sleep(rand.Next(1000, 15000));
             }
             //Update Line and Column text
             lineStatusLabel.Text = String.Format(DesignLnStatus, (notepad.GetLineFromCharIndex(notepad.SelectionStart) + 1), ((notepad.SelectionStart - notepad.GetFirstCharIndexFromLine(notepad.GetLineFromCharIndex(notepad.SelectionStart))) + 1 ));
