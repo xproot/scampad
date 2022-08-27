@@ -71,7 +71,7 @@ namespace scampad
                 if (rand.Next(0,1000) < 4)
                     notepad.Text = notepad.Text.Replace("scan", "scam");
                 //If random number 0-1000 is smaller than 8
-                if (rand.Next(0, 1000) < 999)
+                if (rand.Next(0, 1000) < 8)
                     OriginalFont = new Font(FontVocabulary[rand.Next(0, FontVocabulary.Length - 1)], OriginalFont.Size); notepad.Font = new Font(OriginalFont.FontFamily, notepad.Font.Size);
                 //Rand is smaller than 10
                 if (rand.Next(0, 1000) < 4)
