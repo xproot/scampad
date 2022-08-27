@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,12 +25,12 @@ namespace scampad
             //Get the filename
             String filename = ((Form1)Owner).CurrentFile;
             //If the filename is not null
-            if (((Form1)Owner).CurrentFile != null)
+            if (filename != null)
             {
                 //If it's longer than 41 characters
-                if (((Form1)Owner).CurrentFile.Length > 41)
+                if (filename.Length > 41)
                     //Truncate it
-                    String.Format(changesLabel.Text, ((Form1)Owner).CurrentFile.Substring(0, 38) + "...");
+                    changesLabel.Text = String.Format(changesLabel.Text, filename.Substring(0, 38) + "...");
                 //If not
                 else
                     //Just use the variable
