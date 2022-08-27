@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing.Printing;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace scampad
 {
@@ -14,6 +15,7 @@ namespace scampad
     {
         //Variables
         readonly Random rand = new Random();
+        Font OriginalFont;
         String DesignTitle;
         String DefaultZoom;
         String DesignLnStatus;
@@ -86,6 +88,7 @@ namespace scampad
         //When the form loads (application load basically)
         private void Form1_Load(object sender, EventArgs e)
         {
+            OriginalFont = notepad.Font;
             //If random number between 0-1000 is above 900
             if (rand.Next(0,1000) > 900)
             {
@@ -399,27 +402,33 @@ namespace scampad
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Something happened.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            FontDialog fontDialog = new FontDialog();
+            DialogResult _result = fontDialog.ShowDialog();
+            if (_result == DialogResult.OK)
+            {
+                OriginalFont = fontDialog.Font;
+                restoreDefaultZoomToolStripMenuItem_Click(null, null);
+            }
         }
         #endregion
 
         #region View Menu Strip
         private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            notepad.Font = new System.Drawing.Font(notepad.Font.FontFamily, notepad.Font.Size + 0.5F);
-            zoomStatusLabel.Text = String.Format(DefaultZoom, Math.Round((notepad.Font.Size / 11F) * 100).ToString());
+            notepad.Font = new Font(notepad.Font.FontFamily, notepad.Font.Size * 2F);
+            zoomStatusLabel.Text = String.Format(DefaultZoom, Math.Round((notepad.Font.Size / OriginalFont.Size) * 100).ToString());
         }
 
         private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            notepad.Font = new System.Drawing.Font(notepad.Font.FontFamily, notepad.Font.Size - 0.5F);
-            zoomStatusLabel.Text = String.Format(DefaultZoom, Math.Round((notepad.Font.Size / 11F) * 100).ToString());
+            notepad.Font = new Font(notepad.Font.FontFamily, notepad.Font.Size / 2F);
+            zoomStatusLabel.Text = String.Format(DefaultZoom, Math.Round((notepad.Font.Size / OriginalFont.Size) * 100).ToString());
         }
 
         private void restoreDefaultZoomToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            notepad.Font = new System.Drawing.Font(notepad.Font.FontFamily, 11F);
-            zoomStatusLabel.Text = String.Format(DefaultZoom, Math.Round((notepad.Font.Size / 11F) * 100).ToString());
+            notepad.Font = OriginalFont;
+            zoomStatusLabel.Text = String.Format(DefaultZoom, Math.Round((notepad.Font.Size / OriginalFont.Size) * 100).ToString());
         }
 
         private void statusBarToolStripMenuItem_Click(object sender, EventArgs e)
