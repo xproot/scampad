@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -64,12 +65,13 @@ namespace scampad
         private void lineTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Check if it's not a number
-            bool isNum = int.TryParse(e.KeyChar.ToString(), out int num);
-            if (!isNum)
+            if (!Char.IsNumber(e.KeyChar))
             {
                 //Not handle the press if it's not a number
-                e.Handled = false;
-                MessageBox.Show("You can only type a number here.", "Unacceptable Character", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                e.KeyChar = (Char)Keys.ShiftKey; //e.Handled = false; doesn't work for no reason
+                SystemSounds.Asterisk.Play();
+                balloonTip.Show(String.Empty, lineTextBox);
+                balloonTip.Show("You can only type a number here.", lineTextBox);
             }
         }
     }

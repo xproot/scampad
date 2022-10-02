@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoToBox));
             this.lineLabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.gotoButton = new System.Windows.Forms.Button();
             this.lineTextBox = new System.Windows.Forms.TextBox();
+            this.balloonTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lineLabel
@@ -73,6 +75,15 @@
             this.lineTextBox.TabIndex = 1;
             this.lineTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lineTextBox_KeyPress);
             // 
+            // balloonTip
+            // 
+            this.balloonTip.AutoPopDelay = 2000;
+            this.balloonTip.InitialDelay = 500;
+            this.balloonTip.IsBalloon = true;
+            this.balloonTip.ReshowDelay = 100;
+            this.balloonTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Error;
+            this.balloonTip.ToolTipTitle = "Unacceptable Character";
+            // 
             // GoToBox
             // 
             this.AcceptButton = this.gotoButton;
@@ -103,5 +114,6 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button gotoButton;
         private System.Windows.Forms.TextBox lineTextBox;
+        private System.Windows.Forms.ToolTip balloonTip;
     }
 }
