@@ -40,7 +40,16 @@ namespace scampad
 
         //Function ran when an Interaction happened with the notepad textbox
         public void OnInteraction()
-        {
+        {  
+            //If there is text
+            if (notepad.Text.Length > 0)
+            {
+                if (notepad.WordWrap)
+                    goToToolStripMenuItem.Enabled = false;
+                else
+                    goToToolStripMenuItem.Enabled = true;
+            }
+
             //If the selection is longer than 0
             if (notepad.SelectionLength > 0)
             {
