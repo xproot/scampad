@@ -39,15 +39,21 @@ namespace scampad
             IntPtr hIcon);
 
         //Function ran when an Interaction happened with the notepad textbox
+        //Honestly should rewrite these as switches later
         public void OnInteraction()
         {  
             //If there is text
             if (notepad.Text.Length > 0)
             {
+                findToolStripMenuItem.Enabled = true;
                 if (notepad.WordWrap)
                     goToToolStripMenuItem.Enabled = false;
                 else
                     goToToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                findToolStripMenuItem.Enabled = false;
             }
 
             //If the selection is longer than 0
